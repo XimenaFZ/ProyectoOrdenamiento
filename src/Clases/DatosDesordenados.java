@@ -218,7 +218,40 @@ public class DatosDesordenados {
     }
     
     //Algoritmo QuickSort
-    
+    public DatosOrdenados Quicksort(){
+        int []a = this.getCopiaValores();
+        int i = 0;
+        int j = 0;
+        
+    //Se toma como pivote el primer valor
+        int pivote = a[i];
+        //Se definen los dos lados y un auxiliar 
+        int aux;
+        int n = a.length;
+        int cont=0;
+        while(i<j){
+            cont++;
+            while (a[i] <= pivote && i < j)i++;
+            while (a[j] > pivote)j--;   
+            if (i<j) {                                     
+                aux = a[i];                  
+                a[i]= a[j];
+                a[j]=aux;
+            }
+        }
+        a[i] = a[j]; 
+        a[j] = pivote; 
+        if(i < j-1)
+            quicksort(a,i,j-1);          
+        if(j+1 < j)
+            quicksort(a,j+1,j); 
+        System.out.println("IS-comparaciones = " + cont);
+	// devolver los datos ordenados
+        return new DatosOrdenados(a);
+    }
+    private void quicksort(int[] a, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
     
     //Algoritmo Radix
     public DatosOrdenados Radix(){

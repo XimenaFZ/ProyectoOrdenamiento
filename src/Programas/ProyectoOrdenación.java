@@ -49,6 +49,14 @@ public class ProyectoOrdenación {
             System.out.println("Descendente:" + mos2 + "\n" + "\n");
             
         
+            System.out.println("Ordenamiento QuickSort"); 
+            DatosOrdenados moe = m.Quicksort();
+            t2 = System.nanoTime();   // stop
+            t = t2 - t1;
+            System.out.println("n= "+ n + " t= " + t + " ns. Quicksort " + moi);
+            System.out.println("Descendente:" + moi2 + "\n"+ "\n");
+            
+            
             System.out.println("Ordenamiento Radix"); 
             DatosOrdenados mor = m.Radix();
             t2 = System.nanoTime();   // stop
