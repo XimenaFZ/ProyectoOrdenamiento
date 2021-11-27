@@ -88,6 +88,29 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
     
+    //Algoritmo BubbleSort para decrecer
+    public DatosOrdenados bubbleSort2(){
+        int [] arreglo = this.getCopiaValores();
+       
+        int n = arreglo.length;
+        int cont = 0;
+        int ci = 0;
+       
+        for (int i=0; i < n-1; i++){
+            for (int j=0; j < n-i-1; j++){
+                cont++;
+                if (arreglo[j] < arreglo[j+1]){
+                    // intercambiar: swap
+                    ci++;
+                    int temporal = arreglo[j];
+                    arreglo[j] = arreglo[j+1];
+                    arreglo[j+1] = temporal;
+                }
+            }
+        }      
+        return new DatosOrdenados(arreglo);
+    }
+    
     //Algoritmo InsertSort
     public DatosOrdenados insertSort(){
          // obtener una copia de los datos desordenados
@@ -110,7 +133,89 @@ public class DatosDesordenados {
         return new DatosOrdenados(a);
     }
     
+    //Algoritmo InsertSort para decrecer
+    public DatosOrdenados insertSort2(){
+         // obtener una copia de los datos desordenados
+        int [] a = this.getCopiaValores();
+        
+	int i, j, aux; 
+	int cont=0; 
+	for ( i = 1; i < a.length; i++){
+		j = i;
+		aux = a[i];
+		while(j >0 && a[j-1]<aux){
+                   cont++;
+                   a[j] = a[j-1];
+                   j--; 
+		}
+		a[j] = aux; 
+	}
+       
+        return new DatosOrdenados(a);
+    }
+    
     //Algoritmo ShellSort
+    public DatosOrdenados ShellSort(){
+        int [] a = this.getCopiaValores();
+       
+        int intervalo,i,j,k ,aux;
+        int n = a.length;
+        int cont=0; 
+       
+        intervalo = n / 2;
+        
+        while (intervalo > 0){
+            cont++;
+            for (i = intervalo; i < n; i++){
+                j = i - intervalo;
+                while (j >= 0){
+                    k = j + intervalo;
+                    if (a[j] <= a[k]){
+                        j = -1;
+                    }else{
+                        aux = a[j];
+                        a[j] = a[k];
+                        a[k] = aux;
+                        j -= intervalo;
+                    }
+                }
+            }
+            intervalo = intervalo/2;
+        }
+        System.out.println("IS-comparaciones = " + cont);
+        return new DatosOrdenados(a);
+    }
+    
+    //Algoritmo ShellSort para decrecer
+    public DatosOrdenados ShellSort2(){
+        int [] a = this.getCopiaValores();
+       
+        int intervalo,i,j,k ,aux;
+        int n = a.length;
+        int cont=0; 
+       
+        intervalo = n / 2;
+        
+        while (intervalo > 0){
+            cont++;
+            for (i = intervalo; i < n; i++){
+                j = i - intervalo;
+                while (j >= 0){
+                    k = j + intervalo;
+                    if (a[j] >= a[k]){
+                        j = -1;
+                    }else{
+                        aux = a[j];
+                        a[j] = a[k];
+                        a[k] = aux;
+                        j -= intervalo;
+                    }
+                }
+            }
+            intervalo = intervalo/2;
+        }
+        return new DatosOrdenados(a);
+    }
     
     //Algoritmo QuickSort
     
