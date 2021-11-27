@@ -47,5 +47,13 @@ public class ProyectoOrdenación {
             t = t2 - t1;
             System.out.println("n= "+ n + "t= "+ t +  " ns. ShellSort" + mos);     
             System.out.println("Descendente:" + mos2 + "\n" + "\n");
+            
+        
+            System.out.println("Ordenamiento Radix"); 
+            DatosOrdenados mor = m.Radix();
+            t2 = System.nanoTime();   // stop
+            t = t2 - t1;
+            System.out.println("n= "+ n + " t= " + t + " ns. Radix" + mor);
+            System.out.println("Descendente:" + mos2 + "\n" + "\n");
     }
 }

@@ -63,7 +63,7 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
      
-    //Algoritmo BubbleSort
+    //Algoritmo BubbleSort para crecer
     public DatosOrdenados bubbleSort(){
         int [] arreglo = this.getCopiaValores();
        
@@ -111,7 +111,7 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
     
-    //Algoritmo InsertSort
+    //Algoritmo InsertSort para crecer
     public DatosOrdenados insertSort(){
          // obtener una copia de los datos desordenados
         int [] a = this.getCopiaValores();
@@ -154,7 +154,7 @@ public class DatosDesordenados {
         return new DatosOrdenados(a);
     }
     
-    //Algoritmo ShellSort
+    //Algoritmo  para crecer
     public DatosOrdenados ShellSort(){
         int [] a = this.getCopiaValores();
        
@@ -219,7 +219,36 @@ public class DatosDesordenados {
     
     //Algoritmo QuickSort
     
+    
     //Algoritmo Radix
+    public DatosOrdenados Radix(){
+        int [] a = this.getCopiaValores();
+       
+        int x,i,j;
+        int cont=0; 
+        
+        for(x = Integer.SIZE-1; x>=0; x--){
+            cont++;
+            int aux[] = new int[a.length];
+            j = 0;
+            for(i = 0; i<a.length; i++){
+                boolean mover = a[i]<< x >= 0;
+                if(x==0 ? !mover:mover){
+                    aux[j] = a[i];
+                    j++;
+                }else{
+                    a[i-j] = a[i];
+                }
+            }
+            for(i=j; i<aux.length; i++){
+                aux[i] = a[i-j];
+            }
+            a = aux;
+        }
+        System.out.println("IS-comparaciones = " + cont);
+	// devolver los datos ordenados
+        return new DatosOrdenados(a);
+    }
     
     public DatosOrdenados mergeSort(){
     int [] x = this.getCopiaValores();
